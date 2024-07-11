@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action = "", method="post">
+    <!--Crsf token, action = "" to keep on the same page after clicking-->
+    {{ form.hidden_tag() }}
+    <div>
+        <p>Input Text</p>
+        {{form.ner}}
+            {% if form.ner.error %}
+                {% for error in form.ner.error %}
+                    <div>{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+    </div>
+    <div>
+        {{form.submit()}}
+    </div>
+    <br>
+    <div>
+        {{ output }}
+    </div>
+    <br>
+    <div>
+        <p>Redirect to Homepage?<a href="{{ url_for('home') }}">Home</a></p>
+    </div>
+
+{% endblock content %}
+

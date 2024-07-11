@@ -1,17 +1,17 @@
 from flask_wtf import FlaskForm
-import pandas as pd
 from wtforms import (
     SubmitField,
-    TextAreaField
+    TextAreaField,
+    StringField
 )
-
 from wtforms.validators import DataRequired
 
 class InputForm(FlaskForm):
 
-    airline = TextAreaField(
+    ner = TextAreaField(
         label = "Named Entity Recoginition",
         validators=[DataRequired()]
     )
 
     submit = SubmitField(label="Predict")
+    

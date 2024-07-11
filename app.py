@@ -1,8 +1,7 @@
 from flask import (
     Flask, url_for, render_template
 )
-
-from form import InputForm
+from forms import InputForm
 
 
 app = Flask(__name__)
@@ -17,8 +16,8 @@ def home():
 def ner():
     form = InputForm()
     if form.validate_on_submit():
-        airline = [form.airline.data]
-        message = f"The Sentiment is {airline}"
+        ner = [form.ner.data]
+        message = f"The Sentiment is {ner}"
     else:
         message = "Please provide valid input details!"
     return render_template("ner.html", title = "Named Entity Recoginition", form=form,
