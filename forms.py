@@ -13,5 +13,12 @@ class InputForm(FlaskForm):
         validators=[DataRequired()]
     )
 
+class summaryForm(FlaskForm):
+
+    ner = TextAreaField(
+        label = "Named Entity Recoginition",
+        validators=[DataRequired()]
+    )
+
     submit = SubmitField(label="Predict")
     
